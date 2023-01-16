@@ -1,0 +1,30 @@
+class Solution {
+public:
+    int numJewelsInStones(string jewels, string stones) {
+        unordered_map<char,bool>my;
+        int c=0;
+        for(int i=0;i<jewels.size();i++)
+        {
+            if((int)jewels[i]>=65 && (int)jewels[i]<=90)
+            {
+                my[jewels[i]]=true;
+            }
+            else if((int)jewels[i]>=97 && (int)jewels[i]<=122)
+            {
+                my[jewels[i]]=true;
+            }
+        }
+        for(int i=0;i<stones.size();i++)
+        {
+            if((int)stones[i]>=65 && (int)stones[i]<=90 && my[stones[i]]==true)
+            {
+                c++;
+            }
+            else if((int)stones[i]>=97 && (int)stones[i]<=122 && my[stones[i]]==true)
+            {
+                c++;
+            }
+        }
+        return c;
+    }
+};
